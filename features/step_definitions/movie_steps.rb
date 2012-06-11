@@ -6,7 +6,6 @@ Given /the following movies exist/ do |movies_table|
     # you should arrange to add that movie to the database here.
     Movie.create! movie unless Movie.find :first, :conditions => movie
   end
-  #flunk "Unimplemented"
 end
 
 # Make sure that one string (regexp) occurs before or after another one
