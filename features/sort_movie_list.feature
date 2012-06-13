@@ -25,10 +25,15 @@ Scenario: sort movies alphabetically
   When I filter by the following ratings: G
   Then I am on the RottenPotatoes home page
   When I follow "Movie Title"
-  Then I should see "Aladdin" before "Chicken Run"
+  Then I am on the RottenPotatoes home page
+  And I should see "Aladdin" before "Chicken Run"
   And I should see "2001: A Space Odyssey" before "Aladdin"
 
 Scenario: sort movies in increasing order of release date
+  When I filter by the following ratings: R
+  Then I am on the RottenPotatoes home page
   When I follow "Release Date"
-  # your steps here
+  Then I am on the RottenPotatoes home page
+  And I should see "The Terminator" before "When Harry Met Sally"
+  And I should see "When Harry Met Sally" before "Amelie"
 
