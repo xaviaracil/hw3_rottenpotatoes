@@ -31,3 +31,13 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
     } 
   end
 end
+
+Then /I should see all of the movies/ do
+  assert find('#movielist').all('tr').count == Movie.count, 'Expected all movies'
+end
+
+Then /I should( not)? see the following movies/ do |unseen, movies_table|
+  movies_table.hashes.each do |movie|
+    steps %Q{Then I should#{" not" if unseen} see "#{movie[:title]}"}
+  end
+end
