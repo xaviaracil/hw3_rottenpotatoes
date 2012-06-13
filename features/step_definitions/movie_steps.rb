@@ -39,3 +39,10 @@ Then /I should( not)? see the following movies/ do |unseen, movies_table|
     steps %Q{ Then I should#{" not" if unseen} see "#{movie[:title]}" }
   end
 end
+
+When /I filter by the following ratings: (.*)/ do |rating_list|
+  steps %Q{
+    When I check the following ratings: #{rating_list}
+    And I press "Refresh"
+  }
+end
